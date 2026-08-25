@@ -1,4 +1,4 @@
-# ₿ AI-Powered Algorithmic Trading Bot using Deep Reinforcement Learning
+# AI-Powered Algorithmic Trading Bot using Deep Reinforcement Learning
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![RL-Framework](https://img.shields.io/badge/RL-Stable--Baselines3-orange.svg)](https://stable-baselines3.readthedocs.io/)
@@ -12,7 +12,7 @@ Includes a custom **Gymnasium** environment with realistic transaction fee frict
 
 ---
 
-## 📌 System Architecture
+## System Architecture
 
 ```mermaid
 graph TD
@@ -37,7 +37,7 @@ graph TD
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 * **Custom Gymnasium Trading Environment (`BitcoinTradingEnv`)**:
   * **Observation Space**: 10-dimensional state vector incorporating price ratios, volume trends, RSI(14), MACD histogram, rolling volatility, SMA crossover signals, current portfolio allocation ratio, and unrealized profit/loss.
@@ -61,7 +61,7 @@ graph TD
 
 ---
 
-## 📂 Project Directory Structure
+## Project Directory Structure
 
 ```text
 AI-Powered Algorithmic Trading Bot/
@@ -89,7 +89,7 @@ AI-Powered Algorithmic Trading Bot/
 
 ---
 
-## ⚙️ Technical Details
+## Technical Details
 
 ### 1. DRL State Vector (10 Dimensions)
 
@@ -111,7 +111,7 @@ AI-Powered Algorithmic Trading Bot/
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### 1. Prerequisites & Installation
 
@@ -167,7 +167,7 @@ python src/evaluate_agent.py
 
 ---
 
-## 📊 Backtest Evaluation Metrics
+## Backtest Evaluation Metrics
 
 The framework automatically evaluates strategies using standard quantitative finance performance indicators:
 
@@ -179,7 +179,7 @@ The framework automatically evaluates strategies using standard quantitative fin
 
 ---
 
-## 🖥️ Dashboard Overview (`BTC Strategy Lab`)
+## Dashboard Overview (`BTC Strategy Lab`)
 
 The Streamlit dashboard (`dashboard/app.py`) provides an interactive interface featuring:
 1. **Interactive Candlestick Chart**: Zoomable Plotly chart showing BTC price movements overlayed with PPO Buy/Sell trade execution markers.
