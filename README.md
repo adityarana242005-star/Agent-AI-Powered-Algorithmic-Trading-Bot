@@ -16,22 +16,22 @@ Includes a custom **Gymnasium** environment with realistic transaction fee frict
 
 ```mermaid
 graph TD
-    A[Raw BTC 15m Candlesticks] -->|src/data_loader.py| B[Cleaned Market Data]
-    B -->|src/feature_engineering.py| C[15 Technical Features RSI, MACD, SMA]
-    C -->|src/split_data.py| D[Train / Test Splits]
+    A[Raw BTC 15m Candlesticks] -->|data_loader.py| B[Cleaned Market Data]
+    B -->|feature_engineering.py| C[15 Technical Features RSI, MACD, SMA]
+    C -->|split_data.py| D[Train / Test Splits]
     
     subgraph Supervised ML Layer
-        D -->|src/train_prediction_model.py| E[Random Forest / Gradient Boosting]
-        E -->|src/price_prediction.py| F[Directional Predictions UP/DOWN]
-     grand end
-
-    subgraph Deep Reinforcement Learning Layer
-        D -->|src/trading_environment.py| G[BitcoinTradingEnv 10D State Space]
-        G -->|src/train_agent.py| H[PPO Agent 2M Timesteps]
-        H -->|src/evaluate_agent.py| I[Backtest Evaluation & Metrics]
+        D -->|train_prediction_model.py| E[Random Forest / Gradient Boosting]
+        E -->|price_prediction.py| F[Directional Predictions UP/DOWN]
     end
 
-    F --> J[BTC Strategy Lab Dashboard Streamlit]
+    subgraph Deep Reinforcement Learning Layer
+        D -->|trading_environment.py| G[BitcoinTradingEnv 10D State Space]
+        G -->|train_agent.py| H[PPO Agent 2M Timesteps]
+        H -->|evaluate_agent.py| I[Backtest Evaluation & Metrics]
+    end
+
+    F --> J[BTC Strategy Lab Dashboard]
     I --> J
 ```
 
@@ -92,14 +92,15 @@ AI-Powered Algorithmic Trading Bot/
 ## ⚙️ Technical Details
 
 ### 1. DRL State Vector (10 Dimensions)
+
 | Index | Feature | Description |
 | :--- | :--- | :--- |
-| `0` | **Price vs SMA-20** | $(Close - SMA_{20}) / SMA_{20}$ ratio |
+| `0` | **Price vs SMA-20** | `(Close - SMA_20) / SMA_20` ratio |
 | `1` | **Log Volume** | Normalized log-scale trading volume |
 | `2` | **Return** | Percentage price change of current candle |
 | `3` | **Price Change** | Dollar change relative to close price |
 | `4` | **Position Ratio** | Current BTC holding value / Total Net Worth |
-| `5` | **RSI (Normalized)** | Relative Strength Index scaled to $[-1, 1]$ |
+| `5` | **RSI (Normalized)** | Relative Strength Index scaled to range `[-1, 1]` |
 | `6` | **MACD Histogram** | Normalized MACD signal difference |
 | `7` | **Volatility** | 20-period rolling return standard deviation |
 | `8` | **SMA Crossover** | Difference between SMA-10 and SMA-20 |
@@ -170,12 +171,10 @@ python src/evaluate_agent.py
 
 The framework automatically evaluates strategies using standard quantitative finance performance indicators:
 
-$$\text{Sharpe Ratio} = \frac{\mathbb{E}[R_p - R_f]}{\sigma_p}$$
-
+* **Sharpe Ratio**: Risk-adjusted return calculation $\frac{\mathbb{E}[R_p - R_f]}{\sigma_p}$
 * **Cumulative Return (%)**: Total net profit/loss percentage across the test dataset.
-* **Sharpe Ratio**: Risk-adjusted return calculation (annualized).
-* **Maximum Drawdown (MDD)**: The peak-to-trough drop in portfolio value during the backtest.
-* **Win Rate (%)**: Proportion of closed trades that resulted in positive net PnL.
+* **Maximum Drawdown (MDD)**: Peak-to-trough drop in portfolio value during the backtest.
+* **Win Rate (%)**: Proportion of closed trades resulting in positive net PnL.
 * **Trade Count**: Total buy/sell transactions executed by the agent.
 
 ---
