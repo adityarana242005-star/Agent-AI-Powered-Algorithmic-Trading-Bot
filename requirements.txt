@@ -1,0 +1,14 @@
+# Core RL & ML Frameworks
+stable-baselines3>=2.2.1
+gymnasium>=0.29.1
+scikit-learn>=1.3.0
+
+# Data Manipulation & Computation
+pandas>=2.0.0
+numpy>=1.24.0
+joblib>=1.3.0
+
+# Dashboard & Interactive Visualization
+streamlit>=1.31.0
+plotly>=5.18.0
+matplotlib>=3.7.0
