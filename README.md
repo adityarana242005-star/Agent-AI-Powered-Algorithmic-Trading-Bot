@@ -187,8 +187,3 @@ The Streamlit dashboard (`dashboard/app.py`) provides an interactive interface f
 3. **Direction Predictions Table**: Candle-by-candle predictions showing ML model directional signals (UP/DOWN), probability confidence scores, and actual outcomes.
 4. **Feature Importance Visualizer**: Bar charts displaying feature contribution scores from the Random Forest classification model.
 
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
