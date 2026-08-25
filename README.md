@@ -4,7 +4,7 @@
 [![RL-Framework](https://img.shields.io/badge/RL-Stable--Baselines3-orange.svg)](https://stable-baselines3.readthedocs.io/)
 [![Environment](https://img.shields.io/badge/Env-Gymnasium-green.svg)](https://gymnasium.farama.org/)
 [![Dashboard](https://img.shields.io/badge/UI-Streamlit%20%7C%20Plotly-red.svg)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+
 
 An end-to-end quantitative trading system and research terminal designed for **Bitcoin (BTC/USDT)** high-frequency 15-minute candlestick market data. The project combines **Deep Reinforcement Learning (PPO)** for portfolio execution and **Supervised Ensemble Machine Learning (Random Forest & Gradient Boosting)** for price direction forecasting.
 
