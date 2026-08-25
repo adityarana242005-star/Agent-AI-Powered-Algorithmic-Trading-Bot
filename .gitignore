@@ -1,0 +1,48 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Datasets (Raw and Processed Heavy CSV files)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/*.csv
+*.csv
+
+# Model Weights and Large Binary Files
+models/*
+!models/.gitkeep
+*.joblib
+*.zip
+*.pkl
+*.h5
+*.pt
+*.pth
+
+# Logs and Scratch Files
+*.log
+scratch/
